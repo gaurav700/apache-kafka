@@ -1,0 +1,4 @@
+// for sending message
+GET http://localhost:9190/producer-app/publish/"Gaurav" 
+
+
