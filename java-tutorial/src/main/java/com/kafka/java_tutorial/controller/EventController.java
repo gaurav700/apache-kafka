@@ -3,11 +3,13 @@ package com.kafka.java_tutorial.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kafka.java_tutorial.config.KafkaProducerConfig;
+import com.kafka.java_tutorial.dto.publishDTO;
 import com.kafka.java_tutorial.services.KafkaMessagePublisher;
 
 
@@ -19,13 +21,17 @@ public class EventController {
     @Autowired
     private KafkaMessagePublisher kafkaMessagePublisher;
 
-    @GetMapping("/publish/{message}")
-    public ResponseEntity<?> publishMessage(@PathVariable String message) {
-        try{
+    @Autowired
+    private KafkaProducerConfig kafkaProducerConfig;
+
+    @PostMapping("/publish")
+    public ResponseEntity<?> publishMessage(@RequestBody publishDTO message) {
+        try {
+            kafkaProducerConfig.createTopic(message.getTopicName());
             kafkaMessagePublisher.sendMessageToTopic(message);
             return ResponseEntity.ok("Message Published Successfully");
-        }catch(Exception ex){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
         }
     }
     

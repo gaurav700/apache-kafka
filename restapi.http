@@ -1,4 +1,7 @@
-// for sending message
-GET http://localhost:9190/producer-app/publish/"Gaurav" 
+POST http://localhost:9190/producer-app/publish
+Content-Type: application/json
 
-
+{
+  "topicName": "test-topic",
+  "message": "Hello Kafka from Spring Boot!"
+}
