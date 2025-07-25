@@ -44,6 +44,33 @@
 
 ## Kafka Installation
 - Open Source : Apache Kafka
-- Commercial Distribution : Confluent Kafka
-- Managed Kafka Service : Confluent & AWS
+### Using WSL (Windows Subsystem for Linux)
+This is the cleanest way and closest to Linux environments.
+1. Install WSL & Ubuntu
+   - Run this in PowerShell:
+     - ``` wsl --install```
+   - Restart your PC if needed, and set up Ubuntu.
+2. Install Java inside WSL
+    - ``` sudo apt update```
+    - ``` sudo apt install default-jdk -y```
+3. Download and run Kafka
+    Same steps as before:
+   - ```wget https://downloads.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz```
+   - ```tar -xzf kafka_2.13-3.6.1.tgz```
+   - ```cd kafka_2.13-3.6.1```
 
+### Producer-Consumer flow
+1. Start Zookeeper
+   ```bin/zookeeper-server-start.sh config/zookeeper.properties```
+   Port: 2181
+2. Start Kafka Server/Broker
+   ```bin/kafka-server-start.sh config/server.properties```
+   Port: 9092
+3. Create a topic
+    - To Create the topic: ```bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic javaTutorial-topic --partitions 3 --replication-factor 1```
+    - To list the topic : ```bin/kafka-topics.sh --bootstrap-server localhost:9092 --list```
+    - To Describe the topic : ```bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic javaTutorial-topic```
+4. Producer
+   ```bin/kafka-console-producer.sh --broker-list localhost:9092 --topic javaTutorial-topic```
+5. Consumer
+   ```bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic javaTutorial-topic --from-beginning```
