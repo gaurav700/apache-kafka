@@ -29,12 +29,21 @@
 
 
 ## Kafka Architecture and components
-- Producer : Publish a message consumes by consumer
-- Consumer : Consume a message send by producer
+- Producer : A Producer is a Kafka client that publishes (sends) messages to a Kafka topic.
+- Consumer : A Consumer is a Kafka client that reads (consumes) messages from a topic.
 - Broker : Just a server or in other words, an entity that helps in message exchanges between a producer and consumer.
 - Cluster : Group of servers or brokers
-- Topic : Topic is somthing to whom a consumer subscribes and a producer publishes
-- Partitions
-- Offset
-- Consumer Groups
-- Zookeeper
+- Topic : It specifies the category of the message or the classification of the message. Listeners can then just respond to the messages that belong to the topics they are listening on.
+- Partitions : A topic is split into partitions to enable parallel processing and scalability.
+- Offset : An offset is the position ID of a message in a partition, used by consumers to track progress.
+- Consumer Groups : A group of consumers that share the load of reading from a topic’s partitions.
+- Zookeeper : A coordination service Kafka uses for managing cluster state, leader election, and broker metadata.
+
+![Components](components.png)
+
+
+## Kafka Installation
+- Open Source : Apache Kafka
+- Commercial Distribution : Confluent Kafka
+- Managed Kafka Service : Confluent & AWS
+
