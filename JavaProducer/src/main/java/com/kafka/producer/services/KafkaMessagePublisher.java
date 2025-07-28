@@ -1,9 +1,9 @@
-package com.kafka.java_tutorial.services;
+package com.kafka.producer.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.kafka.java_tutorial.dto.publishDTO;
+import com.kafka.producer.dto.publishDTO;
 
 @Service
 public class KafkaMessagePublisher {

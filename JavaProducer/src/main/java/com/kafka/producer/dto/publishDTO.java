@@ -1,4 +1,4 @@
-package com.kafka.java_tutorial.dto;
+package com.kafka.producer.dto;
 
 import lombok.Data;
 

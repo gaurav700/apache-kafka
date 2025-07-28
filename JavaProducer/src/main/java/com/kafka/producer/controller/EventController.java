@@ -1,4 +1,4 @@
-package com.kafka.java_tutorial.controller;
+package com.kafka.producer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kafka.java_tutorial.config.KafkaProducerConfig;
-import com.kafka.java_tutorial.dto.publishDTO;
-import com.kafka.java_tutorial.services.KafkaMessagePublisher;
+import com.kafka.producer.config.KafkaProducerConfig;
+import com.kafka.producer.dto.publishDTO;
+import com.kafka.producer.services.KafkaMessagePublisher;
 
 
 

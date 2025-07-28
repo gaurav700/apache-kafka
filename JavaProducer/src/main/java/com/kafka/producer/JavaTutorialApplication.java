@@ -1,4 +1,4 @@
-package com.kafka.java_tutorial;
+package com.kafka.producer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

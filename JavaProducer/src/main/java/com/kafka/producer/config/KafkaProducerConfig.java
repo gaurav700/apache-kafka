@@ -1,4 +1,4 @@
-package com.kafka.java_tutorial.config;
+package com.kafka.producer.config;
 
 import java.util.Collections;
 import java.util.HashMap;
