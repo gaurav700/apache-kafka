@@ -1,8 +1,19 @@
-POST http://localhost:9191/producer-app/publish
+### first request
+POST http://localhost:9191/producer/publish1
 Content-Type: application/json
 
 {
-  "topicName": "test-topic",
-  "message": "Hello Kafka from Spring Boot!"
+  "message": "Message send to the consumer by producer"
 }
 
+
+### second request
+POST http://localhost:9191/producer/publish2
+Content-Type: application/json
+
+{
+  "id" : 2,
+  "name" : "Gaurav jangid",
+  "age" : 29, 
+  "email" : "gauravnjit2023@gmail.com"
+}

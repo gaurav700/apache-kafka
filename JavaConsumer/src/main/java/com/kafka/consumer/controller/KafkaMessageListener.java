@@ -5,26 +5,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import com.kafka.consumer.dto.Customer;
+
 @Service
 public class KafkaMessageListener {
-    Logger log = LoggerFactory.getLogger(KafkaMessageListener.class);
-    
-    @KafkaListener(topics = "test-topic", groupId = "test-topic-1")
-    public void consume1(String message){
-        log.info("Consumer1 consume the message { " + message + " }" );
+    private final Logger log = LoggerFactory.getLogger(KafkaMessageListener.class);
+
+    // listen to plain‑text on "default-topic"
+    @KafkaListener(
+      topics = "default-topic",
+      groupId = "tt-1"
+    )
+    public void consumeText(String message) {
+        log.info("Text consumer got → {}", message);
     }
 
-    @KafkaListener(topics = "test-topic", groupId = "test-topic-11")
-    public void consume2(String message){
-        log.info("Consumer2 consume the message { " + message + " }" );
+    // listen to JSON on "Customer-topic"
+    @KafkaListener(
+      topics = "Customer-topic",
+      groupId = "ct-1"
+    )
+    public void consumeCustomer(Customer customer) {
+        log.info("JSON consumer got → {}", customer);
     }
-
-    @KafkaListener(topics = "test-topic", groupId = "test-topic-1")
-    public void consume3(String message){
-        log.info("Consumer3 consume the message { " + message + " }" );
-    }
-
-
-    
-
 }
