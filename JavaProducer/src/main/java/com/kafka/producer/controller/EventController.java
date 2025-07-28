@@ -14,6 +14,7 @@ import com.kafka.producer.services.KafkaMessagePublisher;
 
 
 
+
 @RestController
 @RequestMapping("/producer-app")
 public class EventController {
@@ -23,12 +24,15 @@ public class EventController {
 
     @Autowired
     private KafkaProducerConfig kafkaProducerConfig;
+    
 
     @PostMapping("/publish")
     public ResponseEntity<?> publishMessage(@RequestBody publishDTO message) {
         try {
             kafkaProducerConfig.createTopic(message.getTopicName());
-            kafkaMessagePublisher.sendMessageToTopic(message);
+            for(int i=0;i<100; i++){
+                kafkaMessagePublisher.sendMessageToTopic(message);
+            }
             return ResponseEntity.ok("Message Published Successfully");
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());

@@ -1,7 +1,8 @@
-POST http://localhost:9190/producer-app/publish
+POST http://localhost:9191/producer-app/publish
 Content-Type: application/json
 
 {
   "topicName": "test-topic",
   "message": "Hello Kafka from Spring Boot!"
 }
+
