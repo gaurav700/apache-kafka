@@ -74,3 +74,6 @@ This is the cleanest way and closest to Linux environments.
    ```bin/kafka-console-producer.sh --broker-list localhost:9092 --topic javaTutorial-topic```
 5. Consumer
    ```bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic javaTutorial-topic --from-beginning```
+
+
+

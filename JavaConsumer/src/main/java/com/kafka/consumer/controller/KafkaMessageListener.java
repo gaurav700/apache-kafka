@@ -19,11 +19,12 @@ public class KafkaMessageListener {
         log.info("Consumer2 consume the message { " + message + " }" );
     }
 
-
     @KafkaListener(topics = "test-topic", groupId = "test-topic-1")
     public void consume3(String message){
         log.info("Consumer3 consume the message { " + message + " }" );
     }
 
+
+    
 
 }
