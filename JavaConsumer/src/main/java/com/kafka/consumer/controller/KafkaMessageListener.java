@@ -14,7 +14,8 @@ public class KafkaMessageListener {
     // listen to plain‑text on "default-topic"
     @KafkaListener(
       topics = "default-topic",
-      groupId = "tt-1"
+      groupId = "tt-1",
+      containerFactory = "stringKafkaListenerContainerFactory"
     )
     public void consumeText(String message) {
         log.info("Text consumer got → {}", message);

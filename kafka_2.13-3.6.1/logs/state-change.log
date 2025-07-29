@@ -56,3 +56,4 @@
 [2025-07-28 19:17:34,694] INFO [Broker id=0] Finished LeaderAndIsr request in 89ms correlationId 9 from controller 0 for 4 partitions (state.change.logger)
 [2025-07-28 19:17:34,696] INFO [Broker id=0] Add 4 partitions and deleted 0 partitions from metadata cache in response to UpdateMetadata request sent by controller 0 epoch 1 with correlation id 10 (state.change.logger)
 [2025-07-28 19:58:57,257] INFO [Controller id=0 epoch=1] Sending UpdateMetadata request to brokers HashSet() for 0 partitions (state.change.logger)
+[2025-07-29 17:10:49,448] INFO [Controller id=0 epoch=1] Sending UpdateMetadata request to brokers HashSet(0) for 0 partitions (state.change.logger)
