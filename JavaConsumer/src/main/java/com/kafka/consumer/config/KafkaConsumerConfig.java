@@ -23,7 +23,7 @@ public class KafkaConsumerConfig {
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-        config.put(JsonDeserializer.TRUSTED_PACKAGES, "*"); // or use "com.kafka.consumer.dto"
+        config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.kafka.consumer.dto"); // or use "com.kafka.consumer.dto"
         config.put(JsonDeserializer.VALUE_DEFAULT_TYPE, "com.kafka.consumer.dto.Customer");
         config.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);
         return config;
