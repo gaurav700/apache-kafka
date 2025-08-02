@@ -13,7 +13,7 @@ public class KafkaMessagePublisher {
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessageToTopic(String message) {
-        kafkaTemplate.send("default-topic", message)
+        kafkaTemplate.send("default-topic", 2, "default", message)
             .whenComplete((res, ex) -> {
               if (ex == null) {
                 System.out.println("✅ Sent: " + message
